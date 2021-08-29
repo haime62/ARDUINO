@@ -14,8 +14,7 @@
  * 
  * - Timer test and some other Arduino basic functions.
  *
- * by Aaron.Lee from HelTec AutoMation, ChengDu, China
- * https://heltec.org
+  * https://heltec.org
  *
  * this project also realess in GitHub:
  * https://github.com/HelTecAutomation/Heltec_ESP32
