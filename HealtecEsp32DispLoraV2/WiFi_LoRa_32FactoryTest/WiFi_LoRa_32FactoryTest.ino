@@ -15,7 +15,6 @@
  * - Timer test and some other Arduino basic functions.
  *
  * by Aaron.Lee from HelTec AutoMation, ChengDu, China
- * 成都惠利特自动化科技有限公司
  * https://heltec.org
  *
  * this project also realess in GitHub:
