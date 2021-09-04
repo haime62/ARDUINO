@@ -1,0 +1,102 @@
+Hirvirataohjain
+- Lora pohjainen kauko-ohjain Toteutettu Heltec ESP32 Lora V2 ohjaimella.
+- 5 kytkintä:
+	-on-off-on valintakytkin On sallii ohjauksen / vastaanoton / ajastettu ajo (Lähetys & Vastaanotto lukitus (OFF))
+	-Seis kytkin
+	-Ajo vasemmalle
+	-Ajo oikealle
+	-Ajo 2s + Seis (Keskelle)
+
+Rele ohjaus manuaali ohjaimen paikalle
+	-R1  Seis
+	-R2  Vasemmalle
+	-R3  Oikealle
+
+Näyttö
+	Haetaan yhteyttä
+		Laite päällä Moodissa Haku (Molemmat)
+			Näytä Hakee yhteyttä
+			Valinta kytkimen tila
+		
+		Laite Pause asennossa
+			Näytä isolla PAUSE!
+		
+		Ajotila
+			Seis kun painettu SEIS
+			Vasemmalla 7s Vasen painalluksen jälkeen (ei seis painallusta)
+			Oikealla   7s Oikealle painalluksen jälkeen (Ei seis painallusta)
+			Juoksee Vasen (Nuoli) kun painetaan Vasen
+			Juoksee Oikea (Nuoli) kun painetaan Oikea.
+		
+		Ajastin tila (Ajaa 10 ajoa) ja pysähtyy oikealle tai kun kytkin pois auto asennosta
+		Seis kytkin keskeyttää ajon (ajastuksen)
+			Aja ensin Oikealle jos Hirvi vasemmalla ja auto moodi laitetaan päälle.
+			Oikealla   5 -- 0 kun Hirvi oikealla ja kytkin laitetaan päälle tai saapuu oikealle
+			A ja nuoli vasemmalle 7s
+			Vasemmalla 5 -- 0 kun <Hirvi Vasemmalla.
+			A ja nuoli oikealle 7s
+			
+		Seis tilaan
+			Pysäytä hirvi
+			Meme hätä seis tilaan
+			(poistuminen valitrsemalla pause tile
+			
+			
+	Init
+		-Alusta Näyttö
+			-Alusta
+			-Alkukuva / tekstit
+		-Alusta Lora
+			-Alusta
+			-Näytä Alustetaan
+		(Hirviohjain)
+			Valitsea Ajomoodi
+			Aja hirvi vasemmalle - Oikealle (Jos hirvi vasemmalla aja ensin oikealle.
+			Koeajon voi toistaa useamman kerran.
+		-Pyydä laittamaan Pause!
+		-Kun pause jatka.
+			(Hirviohjain)
+			-Näytä voit valita moodin aja / aja
+			
+		
+		
+	Pääohjelma
+			
+		Tila Yhteyspyyntö
+			Lähetä LORA init viesti
+				-Laitetunnus + oma tila
+				-Laitten tila: Naytä Odottaa yhteyttä
+		Tila Pause (Oma tila tai toisen tila PAUSE
+			Lähetä LORA pause + (oma tila)
+			Näytä
+				-Omatila Pause => Naytä tilavalinnat
+					(Hirviohjain): Aja - Pause - Aja)
+					(Ajo-ohjain):  Aja - Pause - Auto 10
+				-Omatila valittu ja toisen tila Pause
+					Odottaa toinen laite = Pause
+		Tila Aja
+			Paina Aja Oikeaan / Vasempaan
+				Lähetä viesti Ajetaan Vasen / Oikea
+				Odota Viesti perillä
+				Mene tilaan Aja Vasen / Oikea
+			Paina Seis
+				Lähetä viesti hatä seis
+				Mene moodiin Seis tila
+				Odota Viesti perillä
+			Valinta Pause
+				Lähetä viesti Pause
+				Odota viesti perillä
+				Meme tilaan Pause
+		Aja oikea/vasen (Hirvi ohjain)
+			Aja
+				Rele Oikea/Vasen 1s
+				Lähetä viesti Ajetaan V/O
+				Odota vastausta
+				Wait 7s Tai
+			Paina Seis 
+				Seis rele 1s
+				Mene moodiin Seis tila
+			Viesti Seis
+				Seis rele 1s
+		Seis tila
+			
